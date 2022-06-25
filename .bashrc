@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=-1
+HISTFILESIZE=-1 # sets to infinite history length
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -150,6 +150,8 @@ alias gzipc='gzip --keep -9' #max compression keeping the file
 alias gitamendcomment='git commit --amend'
 alias reboot='sudo reboot'
 alias docker='sudo docker'
+alias builddocs='git pull; docker stop docs; docker rm docs; JEKYLL_ENV=production bundle exec jekyll b; docker build -t docs .; docker run -d --name=docs -p 2001:80 docs:latest'
+
 
 up () { #goes up x directories
   local d=""
