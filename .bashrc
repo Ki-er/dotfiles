@@ -151,7 +151,7 @@ alias gitamendcomment='git commit --amend'
 alias reboot='sudo reboot'
 alias docker='sudo docker'
 alias builddocs='git pull; docker stop docs; docker rm docs; JEKYLL_ENV=production bundle exec jekyll b; docker build -t docs .; docker run -d --name=docs -p 2001:80 docs:latest'
-
+alias updatebashrc='read -p "cancel if you do not want your bashrc to change. Press enter if you want to overwrite your bashrc" ;cd ~/dotfiles;git pull; cat .bashrc > ~/.bashrc; exec bash' # change into your config repo and update it. overwrite your current bashrc with the remote contents and restart bash
 
 up () { #goes up x directories
   local d=""
